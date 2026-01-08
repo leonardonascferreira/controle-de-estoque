@@ -117,7 +117,8 @@ Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
                 print('\033[32mProduto excluído com sucesso!\033[m')
                 return
             elif opcao == 'NAO':
-                print('Exclusão cancelada.')
+                print('\033[33mExclusão cancelada.\033[m')
+                return
             else:
                 print('Opcão inválida, tente novamente.')
                 return
@@ -131,7 +132,7 @@ def visualizar_estoque():
     print()
     if not estoque:
         print()
-        print('Estoque vazio!')
+        print('\033[31mEstoque vazio!\033[m')
     else:
         for i, produto in enumerate(estoque, 1):
             print(f'{i}. {produto['nome']} | Preço R${produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
@@ -143,7 +144,7 @@ while True:
     opcao = input('\033[33mDigite a opção desejada: \033[m')
     if opcao == '0':
          print()
-         print('Saindo do sistema...')
+         print('\033[34mObrigado por usar o sistema de estoque!\033[m')
          break
     elif opcao == '1':
         adicionar_produto()
