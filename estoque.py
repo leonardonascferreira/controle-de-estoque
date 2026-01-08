@@ -40,7 +40,7 @@ def exibir_menu():
 #Função adicionar produtos
 def adicionar_produto():
     print()
-    nome = str(input('Digite o nome do produto: '))
+    nome = str(input('Digite o nome do produto: ')).strip().title()
     try:
         preco = float(input('Digite o preço do produto: R$'))
         quantidade = int(input('Quantidade no estoque: '))
@@ -60,17 +60,17 @@ def adicionar_produto():
 def atualizar_produto():
     print()
     if not estoque:
-        print('Produto não encontrado. Tente novamente.')
+        print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
     for produto in estoque:
         if produto['nome'].lower() == buscar_produto.lower():
             print(f'Produto encontrado! {produto['nome']} | Preço: {produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
             print()
-            print('''Opções disponíveis para a atualização:
+            print('''\033[34mOpções disponíveis para a atualização:
 [ 1 ] Preço
 [ 2 ] Quantidade
-[ 0 ] Cancelar''')
+[ 0 ] Cancelar\033[m''')
         
             opcao = input('Escolha uma opção: ')
 
@@ -83,10 +83,10 @@ def atualizar_produto():
                 produto['quantidade'] = nova_qtde
                 salvar_estoque()
             elif opcao == '0':
-                print('Cancelado!')
+                print('\033[31mCancelado!\033[m')
                 return
             else:
-                print('Opção inválida, tente novamente.')
+                print('\033[31mOpção inválida, tente novamente.\033[m')
                 return
             print('\033[32mProduto atualizado com sucesso!\033[m')
             return
@@ -95,14 +95,14 @@ def atualizar_produto():
 def excluir_produto():
     print()
     if not estoque:
-        print('Produto não encontrado. Tente novamente.')
+        print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
     excluir_produto = input('Digite o nome do produto que deseja excluir: ')
     for i, produto in enumerate(estoque):
         if produto['nome'].lower() == excluir_produto.lower():
-            print(f'''\033[33mDeseja realmente excluir esse produto? {produto['nome']}
-[ SIM ]
-[ NÃO ]''')
+            print(f'''\033[33mVocê está prestes a excluir o produto {produto['nome']}
+Essa ação não pode ser desfeita.
+Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
             
             opcao = input('Escolha uma opção: ').upper().strip()
 
@@ -114,7 +114,7 @@ def excluir_produto():
             else:
                 print('Opcão inválida, tente novamente.')
                 return
-    print('Produto não encontrado!')
+    print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
     salvar_estoque()
 
 #Função para visualizar o estoque
