@@ -1,16 +1,16 @@
 [
   {
-    "nome": "Capinhas diversas",
+    "nome": "Produto Z",
     "preco": 30.0,
     "quantidade": 40
   },
   {
-    "nome": "Fone de ouvido bluetooth",
+    "nome": "Produto Y",
     "preco": 80.0,
     "quantidade": 15
   },
   {
-    "nome": "Teclado basico ABNT2",
+    "nome": "Produto X",
     "preco": 120.0,
     "quantidade": 20
   }
