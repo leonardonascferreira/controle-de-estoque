@@ -53,6 +53,7 @@ def adicionar_produto():
         'quantidade': quantidade
     })
     salvar_estoque()
+    print()
     print(f'\033[32mProduto {nome} adicionado!\033[m')
 
 #Função atualizar os produtos
