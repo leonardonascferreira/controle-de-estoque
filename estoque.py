@@ -29,13 +29,13 @@ def continuar():
 
 #Função exibir menu
 def exibir_menu():
-      print('''==== MENU DE OPÇÕES ====
+      print('''\033[34m==== MENU DE OPÇÕES ====
 [ 1 ] Adicionar Produto
 [ 2 ] Atualizar Produto
 [ 3 ] Excluir Produto
 [ 4 ] Visualizar Estoque
 [ 0 ] Sair do Sistema
-''')
+\033[m''')
 
 #Função adicionar produtos
 def adicionar_produto():
@@ -45,7 +45,7 @@ def adicionar_produto():
         preco = float(input('Digite o preço do produto: R$'))
         quantidade = int(input('Quantidade no estoque: '))
     except ValueError:
-         print('Erro: Digite apenas números válidos.')
+         print('\033[31mErro: Digite apenas números válidos.\033[m')
          return
     estoque.append({
         'nome': nome,
@@ -53,7 +53,7 @@ def adicionar_produto():
         'quantidade': quantidade
     })
     salvar_estoque()
-    print(f'Produto {nome} adicionado!')
+    print(f'\033[32mProduto {nome} adicionado!\033[m')
 
 #Função atualizar os produtos
 def atualizar_produto():
