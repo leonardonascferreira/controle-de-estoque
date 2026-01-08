@@ -53,8 +53,9 @@ def adicionar_produto():
     print(f'Produto {nome} adicionado!')
 
 def atualizar_produto():
+    print()
     if not estoque:
-        print('Produto não encontrado. Blablabla')
+        print('Produto não encontrado. Tente novamente.')
         return
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
     for produto in estoque:
@@ -85,10 +86,30 @@ def atualizar_produto():
             print('Produto atualizado com sucesso!')
             return
      
-#def excluir_produto():
-     
-def visualizar_estoque():
-    carregar_estoque()
+def excluir_produto():
+    print()
+    if not estoque:
+        print('Produto não encontrado. Tente novamente.')
+        return
+    buscar_produto = input('Digite o nome do produto que deseja excluir: ')
+    for produto in estoque:
+        if produto['nome'].lower() == buscar_produto.lower():
+            print('''Deseja realmente excluir esse produto?
+[ SIM ]
+[ NÃO ]''')
+            
+            opcao = input('Escolha uma opção: ').upper().strip()
+
+            if opcao == 'SIM':
+
+            elif opcao == 'NAO':
+
+            else:
+                print('Opcão inválida, tente novamente.')
+                return
+
+#def visualizar_estoque():
+    
 
 while True:
     limpar_tela()
