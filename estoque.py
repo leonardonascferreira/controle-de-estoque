@@ -73,7 +73,7 @@ def atualizar_produto():
             opcao = input('Escolha uma opção: ')
 
             if opcao == '1':
-                novo_preco = float(input('Digite o novo preço do produto: R$'))
+                novo_preco = float(input('Digite o novo preço: R$'))
                 produto['preco'] = novo_preco
                 salvar_estoque()
             elif opcao == '2':
@@ -117,6 +117,7 @@ def excluir_produto():
 
 #Função para visualizar o estoque
 def visualizar_estoque():
+    print()
     if not estoque:
         print('Estoque vazio!')
     else:
@@ -143,3 +144,4 @@ while True:
         visualizar_estoque()
     else:
         print('Opção inválida, tente novamente.')
+    continuar()
