@@ -97,10 +97,13 @@ while True:
     if opcao == '0':
          print('Saindo do sistema :)')
          break
-    if opcao == '1':
+    elif opcao == '1':
         adicionar_produto()
-    if opcao == '2':
+    elif opcao == '2':
         atualizar_produto()
-    if opcao == '3':
-
-    
+    elif opcao == '3':
+        excluir_produto()
+    elif opcao == '4':
+        visualizar_estoque()
+    else:
+        print('Opção inválida, tente novamente.')
