@@ -53,37 +53,42 @@ def adicionar_produto():
     print(f'Produto {nome} adicionado!')
 
 def atualizar_produto():
-    limpar_tela()
+    if not estoque:
+        print('Produto não encontrado. Blablabla')
+        return
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
     for produto in estoque:
         if produto['nome'].lower() == buscar_produto.lower():
             print(f'Produto encontrado! {produto['nome']} | Preço: {produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
-        print()
-        print('''Opções disponíveis para a atualização:
+            print()
+            print('''Opções disponíveis para a atualização:
 [ 1 ] Preço
 [ 2 ] Quantidade
 [ 0 ] Cancelar''')
         
-        opcao = int(input('Escolha uma opção: '))
+            opcao = input('Escolha uma opção: ')
 
-        if opcao == '1':
-            novo_preco = float(input('Digite o novo preço do produto: R$'))
-            produto['preco'] = novo_preco
-            salvar_estoque()
-        elif opcao == '2':
-            nova_qtde = int(input('Digite a nova quantidade: '))
-            produto['quantidade'] = nova_qtde
-            salvar_estoque()
-        elif opcao == '0':
-            print('Cancelado!')
-        else:
-            print('Opção inválida, tente novamente.')
-        print('Produto atualizado com sucesso!')
+            if opcao == '1':
+                novo_preco = float(input('Digite o novo preço do produto: R$'))
+                produto['preco'] = novo_preco
+                salvar_estoque()
+            elif opcao == '2':
+                nova_qtde = int(input('Digite a nova quantidade: '))
+                produto['quantidade'] = nova_qtde
+                salvar_estoque()
+            elif opcao == '0':
+                print('Cancelado!')
+                return
+            else:
+                print('Opção inválida, tente novamente.')
+                return
+            print('Produto atualizado com sucesso!')
+            return
      
 #def excluir_produto():
      
-#def visualizar_estoque():
-     
+def visualizar_estoque():
+    carregar_estoque()
 
 while True:
     limpar_tela()
@@ -96,3 +101,6 @@ while True:
         adicionar_produto()
     if opcao == '2':
         atualizar_produto()
+    if opcao == '3':
+
+    
