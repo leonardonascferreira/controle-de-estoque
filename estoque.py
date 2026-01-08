@@ -1,7 +1,5 @@
 import os
 import json
-from colorama import Fore, init
-init(autoreset=True)
 
 arquivo_estoque = 'estoque.json'
 
@@ -11,7 +9,7 @@ def carregar_estoque():
         with open(arquivo_estoque, 'r') as e:
             return json.load(e)
     except FileNotFoundError:
-        return []
+        return[]
 
 estoque = carregar_estoque()
 
@@ -23,6 +21,9 @@ def salvar_estoque():
 #Função limpar a tela
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def continuar():
+    (input('Aperte ENTER para continuar!'))
 
 #Função exibir menu
 def exibir_menu():
