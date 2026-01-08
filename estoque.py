@@ -45,11 +45,15 @@ def adicionar_produto():
          print('Erro: Digite apenas números válidos.')
          return
 
-#def atualizar_produto():
+def atualizar_produto():
+    buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
+    for produto in estoque:
+        if produto['nome'].lower() == buscar_produto.lower():
+            print('sexo')
      
 #def excluir_produto():
      
-def visualizar_estoque():
+#def visualizar_estoque():
      
 
 while True:
@@ -61,3 +65,5 @@ while True:
          break
     if opcao == '1':
         adicionar_produto()
+    elif opcao == '2':
+        atualizar_produto()
