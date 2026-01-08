@@ -103,15 +103,18 @@ def excluir_produto():
     excluir_produto = input('Digite o nome do produto que deseja excluir: ')
     for i, produto in enumerate(estoque):
         if produto['nome'].lower() == excluir_produto.lower():
+            print()
             print(f'''\033[33mVocê está prestes a excluir o produto {produto['nome']}
 Essa ação não pode ser desfeita.
 Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
+            print()
             
             opcao = input('Escolha uma opção: ').upper().strip()
 
             if opcao == 'SIM':
                 estoque.pop(i)
-                print('\033[32mProduto excluído com sucesso!')
+                print('\033[32mProduto excluído com sucesso!\033[m')
+                return
             elif opcao == 'NAO':
                 print('Exclusão cancelada.')
             else:
