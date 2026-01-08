@@ -52,6 +52,7 @@ def adicionar_produto():
     salvar_estoque()
     print(f'Produto {nome} adicionado!')
 
+#Função atualizar os produtos
 def atualizar_produto():
     print()
     if not estoque:
@@ -85,7 +86,8 @@ def atualizar_produto():
                 return
             print('Produto atualizado com sucesso!')
             return
-     
+
+#Função para excluir produtos     
 def excluir_produto():
     print()
     if not estoque:
@@ -102,15 +104,22 @@ def excluir_produto():
 
             if opcao == 'SIM':
 
-            elif opcao == 'NAO':
+            #elif opcao == 'NAO':
 
-            else:
+            #else:
                 print('Opcão inválida, tente novamente.')
                 return
 
-#def visualizar_estoque():
-    
+#Função para visualizar o estoque
+def visualizar_estoque():
+    if not estoque:
+        print('Estoque vazio!')
+    else:
+        print('ESTOQUE')
+        for i, produto in enumerate(estoque, 1):
+            print(f'{i}. {produto['nome']} | {produto['preco']} | {produto['quantidade']}')
 
+#Loop
 while True:
     limpar_tela()
     exibir_menu()
