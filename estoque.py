@@ -93,22 +93,25 @@ def excluir_produto():
     if not estoque:
         print('Produto não encontrado. Tente novamente.')
         return
-    buscar_produto = input('Digite o nome do produto que deseja excluir: ')
-    for produto in estoque:
-        if produto['nome'].lower() == buscar_produto.lower():
-            print('''Deseja realmente excluir esse produto?
+    excluir_produto = input('Digite o nome do produto que deseja excluir: ')
+    for i, produto in enumerate(estoque):
+        if produto['nome'].lower() == excluir_produto.lower():
+            print(f'''Deseja realmente excluir esse produto? {produto['nome']}
 [ SIM ]
 [ NÃO ]''')
             
             opcao = input('Escolha uma opção: ').upper().strip()
 
             if opcao == 'SIM':
-
-            #elif opcao == 'NAO':
-
-            #else:
+                estoque.pop(i)
+                print('Produto excluído com sucesso!')
+            elif opcao == 'NAO':
+                print('Exclusão cancelada.')
+            else:
                 print('Opcão inválida, tente novamente.')
                 return
+    print('Produto não encontrado!')
+    salvar_estoque()
 
 #Função para visualizar o estoque
 def visualizar_estoque():
@@ -117,7 +120,7 @@ def visualizar_estoque():
     else:
         print('ESTOQUE')
         for i, produto in enumerate(estoque, 1):
-            print(f'{i}. {produto['nome']} | {produto['preco']} | {produto['quantidade']}')
+            print(f'{i}. {produto['nome']} | Preço R${produto['preco']} | Quantidade: {produto['quantidade']}')
 
 #Loop
 while True:
@@ -125,7 +128,8 @@ while True:
     exibir_menu()
     opcao = input('Digite a opção desejada: ')
     if opcao == '0':
-         print('Saindo do sistema :)')
+         print()
+         print('Saindo do sistema...')
          break
     elif opcao == '1':
         adicionar_produto()
