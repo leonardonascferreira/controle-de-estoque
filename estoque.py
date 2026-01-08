@@ -113,6 +113,7 @@ Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
 
             if opcao == 'SIM':
                 estoque.pop(i)
+                salvar_estoque()
                 print('\033[32mProduto excluído com sucesso!\033[m')
                 return
             elif opcao == 'NAO':
