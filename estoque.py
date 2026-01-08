@@ -24,6 +24,7 @@ def limpar_tela():
 
 #Função de continuar
 def continuar():
+    print()
     (input('Aperte ENTER para continuar!'))
 
 #Função exibir menu
