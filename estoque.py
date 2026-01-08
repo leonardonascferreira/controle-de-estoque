@@ -22,6 +22,7 @@ def salvar_estoque():
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+#Função de continuar
 def continuar():
     (input('Aperte ENTER para continuar!'))
 
