@@ -106,7 +106,7 @@ def excluir_produto():
             print()
             print(f'''\033[33mVocê está prestes a excluir o produto {produto['nome']}
 Essa ação não pode ser desfeita.
-Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
+Digite \033[32m[SIM]\033[33m para confirmar ou \033[31m[NÃO]\033[33m para cancelar.\033[m''')
             print()
             
             opcao = input('Escolha uma opção: ').upper().strip()
