@@ -25,7 +25,7 @@ def limpar_tela():
 #Função de continuar
 def continuar():
     print()
-    (input('Aperte ENTER para continuar!'))
+    (input('\033[32mAperte ENTER para continuar!\033[m'))
 
 #Função exibir menu
 def exibir_menu():
@@ -88,7 +88,7 @@ def atualizar_produto():
             else:
                 print('Opção inválida, tente novamente.')
                 return
-            print('Produto atualizado com sucesso!')
+            print('\033[32mProduto atualizado com sucesso!\033[m')
             return
 
 #Função para excluir produtos     
@@ -100,7 +100,7 @@ def excluir_produto():
     excluir_produto = input('Digite o nome do produto que deseja excluir: ')
     for i, produto in enumerate(estoque):
         if produto['nome'].lower() == excluir_produto.lower():
-            print(f'''Deseja realmente excluir esse produto? {produto['nome']}
+            print(f'''\033[33mDeseja realmente excluir esse produto? {produto['nome']}
 [ SIM ]
 [ NÃO ]''')
             
@@ -108,7 +108,7 @@ def excluir_produto():
 
             if opcao == 'SIM':
                 estoque.pop(i)
-                print('Produto excluído com sucesso!')
+                print('\033[32mProduto excluído com sucesso!')
             elif opcao == 'NAO':
                 print('Exclusão cancelada.')
             else:
@@ -121,6 +121,7 @@ def excluir_produto():
 def visualizar_estoque():
     print()
     if not estoque:
+        print()
         print('Estoque vazio!')
     else:
         print(' ==== ESTOQUE ====')
@@ -131,7 +132,7 @@ def visualizar_estoque():
 while True:
     limpar_tela()
     exibir_menu()
-    opcao = input('Digite a opção desejada: ')
+    opcao = input('\033[33mDigite a opção desejada: \033[m')
     if opcao == '0':
          print()
          print('Saindo do sistema...')
@@ -145,5 +146,5 @@ while True:
     elif opcao == '4':
         visualizar_estoque()
     else:
-        print('Opção inválida, tente novamente.')
+        print('\033[31mOpção inválida, tente novamente.\033[m')
     continuar()
