@@ -39,11 +39,18 @@ def adicionar_produto():
     print()
     nome = str(input('Digite o nome do produto: '))
     try:
-        preco_produto = float(input('Digite o preço do produto: R$'))
-        qtde_estoque = int(input('Quantidade no estoque: '))
+        preco = float(input('Digite o preço do produto: R$'))
+        quantidade = int(input('Quantidade no estoque: '))
     except ValueError:
          print('Erro: Digite apenas números válidos.')
          return
+    estoque.append({
+        'nome': nome,
+        'preco': preco,
+        'quantidade': quantidade
+    })
+    salvar_estoque()
+    print(f'Produto {nome} adicionado!')
 
 def atualizar_produto():
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
@@ -65,5 +72,3 @@ while True:
          break
     if opcao == '1':
         adicionar_produto()
-    elif opcao == '2':
-        atualizar_produto()
