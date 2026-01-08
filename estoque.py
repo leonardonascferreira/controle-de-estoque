@@ -56,7 +56,8 @@ def atualizar_produto():
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
     for produto in estoque:
         if produto['nome'].lower() == buscar_produto.lower():
-            print('sexo')
+            print(f'Produto encontrado!: {produto['nome']} | Preço: {produto['preco']} | Quantidade: {produto['quantidade']}')
+            
      
 #def excluir_produto():
      
@@ -68,7 +69,9 @@ while True:
     exibir_menu()
     opcao = input('Digite a opção desejada: ')
     if opcao == '0':
-         print('Saiundo do sistema :)')
+         print('Saindo do sistema :)')
          break
     if opcao == '1':
         adicionar_produto()
+    if opcao == '2':
+        atualizar_produto()
