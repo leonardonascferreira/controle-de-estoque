@@ -41,6 +41,7 @@ def exibir_menu():
 def adicionar_produto():
     limpar_tela()
     print('\033[34m==== ADICIONAR PRODUTO ====\033[m')
+    print()
     nome = str(input('Digite o nome do produto: ')).strip().title()
     try:
         preco = float(input('Digite o preço do produto: R$'))
@@ -61,6 +62,7 @@ def adicionar_produto():
 def atualizar_produto():
     limpar_tela()
     print('\033[34m==== ATUALIZAR PRODUTO ====\033[m')
+    print()
     if not estoque:
         print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
@@ -97,6 +99,7 @@ def atualizar_produto():
 def excluir_produto():
     limpar_tela()
     print('\033[34m==== EXCLUIR PRODUTO ====\033[m')
+    print()
     if not estoque:
         print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
@@ -120,7 +123,7 @@ Digite \033[32m[SIM]\033[33m para confirmar ou \033[31m[NÃO]\033[33m para cance
                 print('\033[33mExclusão cancelada.\033[m')
                 return
             else:
-                print('Opcão inválida, tente novamente.')
+                print('\033[31mOpcão inválida, tente novamente.\033[m')
                 return
     print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
     salvar_estoque()
