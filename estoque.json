@@ -3,5 +3,15 @@
     "nome": "Capinhas diversas",
     "preco": 30.0,
     "quantidade": 40
+  },
+  {
+    "nome": "Fone de ouvido bluetooth",
+    "preco": 80.0,
+    "quantidade": 15
+  },
+  {
+    "nome": "Teclado basico ABNT2",
+    "preco": 120.0,
+    "quantidade": 20
   }
 ]
