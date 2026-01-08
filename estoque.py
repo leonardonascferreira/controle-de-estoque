@@ -53,16 +53,32 @@ def adicionar_produto():
     print(f'Produto {nome} adicionado!')
 
 def atualizar_produto():
+    limpar_tela()
     buscar_produto = input('Digite o nome do produto que deseja atualizar: ')
     for produto in estoque:
         if produto['nome'].lower() == buscar_produto.lower():
-            print(f'Produto encontrado!: {produto['nome']} | Preço: {produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
-        print('''Itens disponíveis para a atualização:
-              [ 1 ] Preço
-              [ 2 ] Quantidade
-              [ 0 ] Cancelar''')
+            print(f'Produto encontrado! {produto['nome']} | Preço: {produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
+        print()
+        print('''Opções disponíveis para a atualização:
+[ 1 ] Preço
+[ 2 ] Quantidade
+[ 0 ] Cancelar''')
         
         opcao = int(input('Escolha uma opção: '))
+
+        if opcao == '1':
+            novo_preco = float(input('Digite o novo preço do produto: R$'))
+            produto['preco'] = novo_preco
+            salvar_estoque()
+        elif opcao == '2':
+            nova_qtde = int(input('Digite a nova quantidade: '))
+            produto['quantidade'] = nova_qtde
+            salvar_estoque()
+        elif opcao == '0':
+            print('Cancelado!')
+        else:
+            print('Opção inválida, tente novamente.')
+        print('Produto atualizado com sucesso!')
      
 #def excluir_produto():
      
