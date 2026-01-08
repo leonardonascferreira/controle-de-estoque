@@ -39,7 +39,8 @@ def exibir_menu():
 
 #Função adicionar produtos
 def adicionar_produto():
-    print()
+    limpar_tela()
+    print('\033[34m==== ADICIONAR PRODUTO ====\033[m')
     nome = str(input('Digite o nome do produto: ')).strip().title()
     try:
         preco = float(input('Digite o preço do produto: R$'))
@@ -58,7 +59,8 @@ def adicionar_produto():
 
 #Função atualizar os produtos
 def atualizar_produto():
-    print()
+    limpar_tela()
+    print('\033[34m==== ATUALIZAR PRODUTO ====\033[m')
     if not estoque:
         print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
@@ -93,7 +95,8 @@ def atualizar_produto():
 
 #Função para excluir produtos     
 def excluir_produto():
-    print()
+    limpar_tela()
+    print('\033[34m==== EXCLUIR PRODUTO ====\033[m')
     if not estoque:
         print('\033[31mProduto não encontrado. Verifique o nome e tente novamente.\033[m')
         return
@@ -119,14 +122,15 @@ Digite [SIM] para confirmar ou [NÃO] para cancelar.\033[m''')
 
 #Função para visualizar o estoque
 def visualizar_estoque():
+    limpar_tela()
+    print('\033[34m==== VISUALIZANDO ESTOQUE ====\033[m')
     print()
     if not estoque:
         print()
         print('Estoque vazio!')
     else:
-        print(' ==== ESTOQUE ====')
         for i, produto in enumerate(estoque, 1):
-            print(f'{i}. {produto['nome']} | Preço R${produto['preco']} | Quantidade: {produto['quantidade']}')
+            print(f'{i}. {produto['nome']} | Preço R${produto['preco']:.2f} | Quantidade: {produto['quantidade']}')
 
 #Loop
 while True:
