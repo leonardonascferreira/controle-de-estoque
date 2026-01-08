@@ -118,7 +118,7 @@ def visualizar_estoque():
     if not estoque:
         print('Estoque vazio!')
     else:
-        print('ESTOQUE')
+        print(' ==== ESTOQUE ====')
         for i, produto in enumerate(estoque, 1):
             print(f'{i}. {produto['nome']} | Preço R${produto['preco']} | Quantidade: {produto['quantidade']}')
 
