@@ -5,7 +5,20 @@ init(autoreset=True)
 
 arquivo_estoque = 'estoque.json'
 
+#Carregar estoque
+def carregar_estoque():
+    try:
+        with open(arquivo_estoque, 'r') as e:
+            return json.load(e)
+    except FileNotFoundError:
+        return []
 
+estoque = carregar_estoque()
+
+#Salvar estoque
+def salvar_estoque():
+    with open(arquivo_estoque, 'w') as e:
+        json.dump(estoque, e, indent=2)
 
 #Função limpar a tela
 def limpar_tela():
@@ -14,24 +27,37 @@ def limpar_tela():
 #Função exibir menu
 def exibir_menu():
       print('''==== MENU DE OPÇÕES ====
-[ 0 ] Adicionar Produto
-[ 1 ] Atualizar Produto
-[ 2 ] Excluir Produto
-[ 3 ] Visualizar Estoque
-[ 4 ] Sair do Sistema
+[ 1 ] Adicionar Produto
+[ 2 ] Atualizar Produto
+[ 3 ] Excluir Produto
+[ 4 ] Visualizar Estoque
+[ 0 ] Sair do Sistema
 ''')
 
 #Função adicionar produtos
 def adicionar_produto():
-    nome_produto = str(input('Digite o nome do produto: '))
-    preco_produto = float(input('Digite o preço do produto: R$'))
-    qtde_estoque = float(input('Quantidade no estoque: '))
+    print()
+    nome = str(input('Digite o nome do produto: '))
+    try:
+        preco_produto = float(input('Digite o preço do produto: R$'))
+        qtde_estoque = int(input('Quantidade no estoque: '))
+    except ValueError:
+         print('Erro: Digite apenas números válidos.')
+         return
 
-def atualizar_produto():
+#def atualizar_produto():
      
-def excluir_produto():
+#def excluir_produto():
      
 def visualizar_estoque():
      
 
-exibir_menu()
+while True:
+    limpar_tela()
+    exibir_menu()
+    opcao = input('Digite a opção desejada: ')
+    if opcao == '0':
+         print('Saiundo do sistema :)')
+         break
+    if opcao == '1':
+        adicionar_produto()
