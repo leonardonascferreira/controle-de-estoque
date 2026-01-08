@@ -13,10 +13,5 @@
     "nome": "Teclado basico ABNT2",
     "preco": 120.0,
     "quantidade": 20
-  },
-  {
-    "nome": "Pendrive 128GB",
-    "preco": 120.0,
-    "quantidade": 50
   }
 ]
