@@ -63,4 +63,6 @@ O arquivo estoque.json possui a seguinte estrutura:
 ```
 
  ## Contato 📧
+ 
+- [LinkedIn](https://linkedin.com/in/leonardonascferreira)
 - [Meu E-mail](mailto:leonardonascferreira@gmail.com)
