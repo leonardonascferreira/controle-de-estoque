@@ -30,7 +30,7 @@ O projeto foi desenvolvido como **projeto acadêmico**, com foco na aplicação 
 1. Clone este repositório:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/leonardonascferreira/controle-de-estoque
 ```
 
 2. Execute o arquivo Python no terminal:
